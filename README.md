@@ -1,20 +1,18 @@
-
-
-# 🤖 H2017 로봇팔 강화학습 환경 설정
+# 🤖 H2017 Robotic Arm Reinforcement Learning Environment Setup
 ![title_image](https://github.com/user-attachments/assets/9e745252-7a92-4869-88d4-d8001fb0bb89)
-본 가이드는 H2017 로봇팔 제어를 위한 강화학습 환경을 단계별로 설정하는 방법을 제공합니다. 이 환경은 [두산 로보틱스 GitHub](https://github.com/doosan-robotics/doosan-robot)에서 제공하는 URDF를 기반으로 하며, end-effector와 base의 collision 및 visual 모델은 자체 제작된 모델입니다. 기존 DSR 에뮬레이터(dsr_emulator)의 Docker 실행 불편함과 배속 조절 불가 문제를 개선한 환경을 제공합니다.
+This guide provides a step-by-step setup for the reinforcement learning environment to control the H2017 robotic arm. This environment is based on the URDF provided by [Doosan Robotics GitHub](https://github.com/doosan-robotics/doosan-robot), and it uses a custom-made model for collision and visual models of the end-effector and base. It offers an improved environment that addresses the inconvenience of running Docker in the existing DSR emulator (dsr_emulator) and the inability to control the playback speed.
 
-# 💻 운영체제 설치
+# 💻 Operating System Installation
 
-운영체제 설치는 [이 가이드](https://blog.naver.com/jm_0820/223001100698)를 참고하여 진행하십시오.
+Please refer to [this guide](https://blog.naver.com/jm_0820/223001100698) to install the operating system.
 
-# 🛠️ ROS 설치
+# 🛠️ ROS Installation
 
-ROS Noetic 설치는 [ROS Noetic 설치 가이드](http://wiki.ros.org/noetic/Installation/Ubuntu)를 참고하여 진행합니다.
+Install ROS Noetic by following the instructions in the [ROS Noetic Installation Guide](http://wiki.ros.org/noetic/Installation/Ubuntu).
 
-# 🦾 MoveIt 설치
+# 🦾 MoveIt Installation
 
-MoveIt 관련 패키지를 설치하려면 다음 명령어를 사용하세요:
+To install MoveIt-related packages, use the following commands:
 
 ```bash
 sudo apt install ros-noetic-moveit -y
@@ -23,17 +21,17 @@ sudo apt-get install ros-noetic-effort-controllers -y
 sudo apt-get install ros-noetic-rosbridge-server -y
 ```
 
-# 📁 ROS 작업공간 설정
+# 📁 Setting up the ROS Workspace
 
-ROS 작업공간 설정 단계는 아래와 같습니다:
+Follow these steps to set up the ROS workspace:
 
-1. ROS 환경 불러오기:
+1. Load the ROS environment:
 
     ```bash
     source /opt/ros/noetic/setup.sh
     ```
 
-2. 작업공간 생성 및 초기화:
+2. Create and initialize the workspace:
 
     ```bash
     mkdir -p ~/catkin_ws/src
@@ -41,7 +39,7 @@ ROS 작업공간 설정 단계는 아래와 같습니다:
     catkin_init_workspace
     ```
 
-3. 컴파일 및 환경 설정:
+3. Compile and configure the environment:
 
     ```bash
     cd ~/catkin_ws
@@ -49,9 +47,9 @@ ROS 작업공간 설정 단계는 아래와 같습니다:
     source devel/setup.bash
     ```
 
-# 📁 ROS 패키지 생성
+# 📁 Creating a ROS Package
 
-ROS 패키지 생성을 위해 아래 명령어를 사용합니다:
+To create a ROS package, use the following commands:
 
 ```bash
 cd ~/catkin_ws/src
@@ -61,39 +59,39 @@ catkin_make
 source devel/setup.bash
 ```
 
-# ⚙️ 선택 옵션
+# ⚙️ Optional Settings
 
-## 📅 시스템 업데이트
+## 📅 System Update
 
 ```bash
 sudo apt-get update
 sudo apt-get upgrade
 ```
 
-## ⌨️ 한국어 키보드 설정
+## ⌨️ Setting up Korean Keyboard
 
-[한국어 키보드 설정 가이드](https://shanepark.tistory.com/231)를 참고하십시오.
+Refer to [this guide](https://shanepark.tistory.com/231) for setting up the Korean keyboard.
 
-## 🐍 pip 설치
+## 🐍 Installing pip
 
 ```bash
 sudo apt-get install python3-pip -y
 ```
 
-## 💻 추가 프로그램 설치
+## 💻 Installing Additional Programs
 
 - [GitHub Desktop](https://gist.github.com/berkorbay/6feda478a00b0432d13f1fc0a50467f1)
 - [TeamViewer](https://www.teamviewer.com/ko/download/linux/)
 - [VSCode](https://code.visualstudio.com/download)
 
 ```bash
-sudo apt install barrier -y  # KVM 스위치 소프트웨어
-sudo apt-get install terminator -y  # 편리한 터미널
+sudo apt install barrier -y  # KVM switch software
+sudo apt-get install terminator -y  # Convenient terminal
 ```
 
-# 🎨 그래픽 드라이버 및 CUDA 설치
+# 🎨 Graphics Driver and CUDA Installation
 
-## 🚮 기존 그래픽 드라이버 제거
+## 🚮 Removing Existing Graphics Drivers
 
 ```bash
 sudo apt --purge remove *nvidia*
@@ -102,47 +100,47 @@ sudo apt-get autoclean
 sudo rm -rf /usr/local/cuda*
 ```
 
-## 1️⃣ 그래픽 드라이버 설치
+## 1️⃣ Installing Graphics Driver
 
-1. 드라이버 확인 및 설치:
+1. Verify and install the driver:
 
     ```bash
     ubuntu-drivers devices
-    sudo apt-get install nvidia-driver-<버전번호>
+    sudo apt-get install nvidia-driver-<version number>
     sudo apt-get install dkms nvidia-modprobe -y
     sudo apt-get update
     sudo apt-get upgrade
     sudo reboot now
     ```
 
-2. 설치 확인:
+2. Verify the installation:
 
     ```bash
     nvidia-smi
     ```
 
-## 2️⃣ CUDA 설치 (권장 버전: 11.8 또는 12.1)
+## 2️⃣ Installing CUDA (Recommended Versions: 11.8 or 12.1)
 
-CUDA 설치를 위해 [NVIDIA CUDA Toolkit 아카이브](https://developer.nvidia.com/cuda-toolkit-archive)를 참고하여 runfile을 다운로드하고 실행 권한을 부여한 후 설치를 진행합니다.
+Refer to the [NVIDIA CUDA Toolkit Archive](https://developer.nvidia.com/cuda-toolkit-archive) to download the runfile, grant execute permissions, and install CUDA.
 
 ```bash
 chmod 777 <runfile>
-nvcc -V  # 설치 확인
+nvcc -V  # Verify installation
 ```
 
-## 3️⃣ cuDNN 설치
+## 3️⃣ Installing cuDNN
 
-1. [cuDNN 아카이브](https://developer.nvidia.com/rdp/cudnn-archive)에서 deb 파일을 다운로드 후 설치합니다.
-2. 필요한 경우 아래 명령어로 CUDA 및 cuDNN 소스 목록을 삭제합니다.
+1. Download the deb file from the [cuDNN Archive](https://developer.nvidia.com/rdp/cudnn-archive) and install it.
+2. If needed, use the following commands to remove CUDA and cuDNN source lists.
 
     ```bash
     sudo rm /etc/apt/sources.list.d/cuda*
     sudo rm /etc/apt/sources.list.d/cudnn*
     ```
 
-# 🔥 PyTorch 설치 및 CUDA 확인
+# 🔥 Verifying PyTorch and CUDA Installation
 
-다음 Python 코드를 실행하여 CUDA와 cuDNN 설정을 확인하세요:
+Run the following Python code to verify CUDA and cuDNN settings:
 
 ```python
 import torch
@@ -154,9 +152,9 @@ print(torch.backends.cudnn.enabled)
 print(torch.backends.cudnn.version())
 ```
 
-# 🦾 H2017 ROS 패키지 생성
+# 🦾 Creating the H2017 ROS Package
 
-## 1️⃣ Link attacher 설치 (Pick&Place 용도)
+## 1️⃣ Installing the Link Attacher (For Pick&Place)
 
 ```bash
 cd ~/catkin_ws/src
@@ -167,9 +165,9 @@ source devel/setup.bash
 sudo apt install ros-noetic-gazebo-plugins
 ```
 
-## 2️⃣ Custom URDF 다운로드
+## 2️⃣ Downloading the Custom URDF
 
-H2017 URDF 패키지를 설치하려면 아래 명령어를 사용합니다:
+To install the H2017 URDF package, use the following commands:
 
 ```bash
 cd ~/catkin_ws/src
@@ -179,36 +177,39 @@ catkin_make
 source devel/setup.bash
 ```
 
-## 3️⃣ Moveit setup assistant
+## 3️⃣ MoveIt Setup Assistant
+
 ```bash
 roslaunch moveit_setup_assistant setup_assistant.launch
 ```
-[영상 가이드](https://www.youtube.com/watch?v=gC_CYeNccQk)
+[Video Guide](https://www.youtube.com/watch?v=gC_CYeNccQk)
 
-## 4️⃣ Custom world 설정
+## 4️⃣ Setting up a Custom World
+
 ```bash
 sudo mv ~/catkin_ws/src/h2017_URDF/worlds/objects/*.dae /usr/share/gazebo-11/models/
 ls /usr/share/gazebo-11/models
 ```
 ```bash
-gedit ~/catkin_ws/src/h2017_w_gripper1/launch/demo_gazebo.launch # world_name의 default 값을 변경 >> "$(find h2017_URDF)/worlds/custom_world.world"
-gedit ~/catkin_ws/src/h2017_w_gripper1/launch/gazebo.launch # world_name의 default 값을 변경 >> "$(find h2017_URDF)/worlds/custom_world.world"
+gedit ~/catkin_ws/src/h2017_w_gripper1/launch/demo_gazebo.launch # Change the default value of world_name >> "$(find h2017_URDF)/worlds/custom_world.world"
+gedit ~/catkin_ws/src/h2017_w_gripper1/launch/gazebo.launch # Change the default value of world_name >> "$(find h2017_URDF)/worlds/custom_world.world"
 ```
 
 ## 5️⃣ Launch
+
 ```bash
 roslaunch h2017_w_gripper1 demo_gazebo.launch
 ```
 
+### 🔴 If a Controller Error Occurs
 
-### 🔴 controller error 발생 시
 ```bash
-gedit ~/catkin_ws/src/h2017_w_gripper1/config/gazebo_h2017.urdf  # 중복된 gazebo_ros_control plugin을 제거하세요
+gedit ~/catkin_ws/src/h2017_w_gripper1/config/gazebo_h2017.urdf  # Remove any duplicate gazebo_ros_control plugins
 ```
 
-### 🔴 Link attacher 비활성화를 원할 시
-```bash
-world 파일에서 <plugin name="link_attacher_plugin" filename="libgazebo_ros_link_attacher.so" /> 제거
-urdf 파일에서 <plugin name="ros_link_attacher_plugin" filename="libgazebo_ros_link_attacher.so"/> 제거
-```
+### 🔴 To Disable the Link Attacher
 
+```bash
+Remove <plugin name="link_attacher_plugin" filename="libgazebo_ros_link_attacher.so" /> from the world file
+Remove <plugin name="ros_link_attacher_plugin" filename="libgazebo_ros_link_attacher.so"/> from the urdf file
+```
