@@ -190,10 +190,9 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 sudo mv ~/catkin_ws/src/h2017_URDF/worlds/objects/*.dae /usr/share/gazebo-11/models/
 ls /usr/share/gazebo-11/models
 ```
-world_name의 default 값을 변경 >> "$(find h2017_URDF)/worlds/custom_world.world"
 ```bash
-gedit ~/catkin_ws/src/h2017_w_gripper1/launch/demo_gazebo.launch
-gedit ~/catkin_ws/src/h2017_w_gripper1/launch/gazebo.launch
+gedit ~/catkin_ws/src/h2017_w_gripper1/launch/demo_gazebo.launch # world_name의 default 값을 변경 >> "$(find h2017_URDF)/worlds/custom_world.world"
+gedit ~/catkin_ws/src/h2017_w_gripper1/launch/gazebo.launch # world_name의 default 값을 변경 >> "$(find h2017_URDF)/worlds/custom_world.world"
 ```
 
 ## 5️⃣ Launch
@@ -204,11 +203,7 @@ roslaunch h2017_w_gripper1 demo_gazebo.launch
 
 ### 🔴 controller error 발생 시
 ```
-<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"/> 중복 제거
-```
-
-```
-gedit ~/catkin_ws/src/h2017_w_gripper1/config/gazebo_h2017.urdf
+gedit ~/catkin_ws/src/h2017_w_gripper1/config/gazebo_h2017.urdf  # 중복된 gazebo_ros_control plugin을 제거하세요
 
 ```
 
