@@ -1,4 +1,4 @@
-# 🤖 H2017 Robotic Arm Reinforcement Learning Environment Setup
+# 🤖 H2017 robotic arm custom environment setup
 ![title_image](https://github.com/user-attachments/assets/9e745252-7a92-4869-88d4-d8001fb0bb89)
 This guide provides a step-by-step setup for the reinforcement learning environment to control the H2017 robotic arm. This environment is based on the URDF provided by [Doosan Robotics GitHub](https://github.com/doosan-robotics/doosan-robot), and it uses a custom-made model for collision and visual models of the end-effector and base. It offers an improved environment that addresses the inconvenience of running Docker in the existing DSR emulator (dsr_emulator) and the inability to control the playback speed.
 
