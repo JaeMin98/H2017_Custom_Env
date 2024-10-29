@@ -61,24 +61,24 @@ source devel/setup.bash
 
 # ⚙️ Optional Settings
 
-## 📅 System Update
+### 📅 System Update
 
 ```bash
 sudo apt-get update
 sudo apt-get upgrade
 ```
 
-## ⌨️ Setting up Korean Keyboard
+### ⌨️ Setting up Korean Keyboard
 
 Refer to [this guide](https://shanepark.tistory.com/231) for setting up the Korean keyboard.
 
-## 🐍 Installing pip
+### 🐍 Installing pip
 
 ```bash
 sudo apt-get install python3-pip -y
 ```
 
-## 💻 Installing Additional Programs
+### 💻 Installing Additional Programs
 
 - [GitHub Desktop](https://gist.github.com/berkorbay/6feda478a00b0432d13f1fc0a50467f1)
 - [TeamViewer](https://www.teamviewer.com/ko/download/linux/)
@@ -91,7 +91,7 @@ sudo apt-get install terminator -y  # Convenient terminal
 
 # 🎨 Graphics Driver and CUDA Installation
 
-## 🚮 Removing Existing Graphics Drivers
+### 🚮 Removing Existing Graphics Drivers
 
 ```bash
 sudo apt --purge remove *nvidia*
@@ -100,7 +100,7 @@ sudo apt-get autoclean
 sudo rm -rf /usr/local/cuda*
 ```
 
-## 1️⃣ Installing Graphics Driver
+### 1️⃣ Installing Graphics Driver
 
 1. Verify and install the driver:
 
@@ -119,7 +119,7 @@ sudo rm -rf /usr/local/cuda*
     nvidia-smi
     ```
 
-## 2️⃣ Installing CUDA (Recommended Versions: 11.8 or 12.1)
+### 2️⃣ Installing CUDA (Recommended Versions: 11.8 or 12.1)
 
 Refer to the [NVIDIA CUDA Toolkit Archive](https://developer.nvidia.com/cuda-toolkit-archive) to download the runfile, grant execute permissions, and install CUDA.
 
@@ -128,7 +128,7 @@ chmod 777 <runfile>
 nvcc -V  # Verify installation
 ```
 
-## 3️⃣ Installing cuDNN
+### 3️⃣ Installing cuDNN
 
 1. Download the deb file from the [cuDNN Archive](https://developer.nvidia.com/rdp/cudnn-archive) and install it.
 2. If needed, use the following commands to remove CUDA and cuDNN source lists.
@@ -154,7 +154,7 @@ print(torch.backends.cudnn.version())
 
 # 🦾 Creating the H2017 ROS Package
 
-## 1️⃣ Installing the Link Attacher (For Pick&Place)
+### 1️⃣ Installing the Link Attacher (For Pick&Place)
 
 ```bash
 cd ~/catkin_ws/src
@@ -165,7 +165,7 @@ source devel/setup.bash
 sudo apt install ros-noetic-gazebo-plugins
 ```
 
-## 2️⃣ Downloading the Custom URDF
+### 2️⃣ Downloading the Custom URDF
 
 To install the H2017 URDF package, use the following commands:
 
@@ -177,14 +177,14 @@ catkin_make
 source devel/setup.bash
 ```
 
-## 3️⃣ MoveIt Setup Assistant
+### 3️⃣ MoveIt Setup Assistant
 
 ```bash
 roslaunch moveit_setup_assistant setup_assistant.launch
 ```
 [Video Guide](https://www.youtube.com/watch?v=gC_CYeNccQk)
 
-## 4️⃣ Setting up a Custom World
+### 4️⃣ Setting up a Custom World
 
 ```bash
 sudo mv ~/catkin_ws/src/h2017_URDF/worlds/objects/*.dae /usr/share/gazebo-11/models/
@@ -195,7 +195,7 @@ gedit ~/catkin_ws/src/h2017_w_gripper1/launch/demo_gazebo.launch # Change the de
 gedit ~/catkin_ws/src/h2017_w_gripper1/launch/gazebo.launch # Change the default value of world_name >> "$(find h2017_URDF)/worlds/custom_world.world"
 ```
 
-## 5️⃣ Launch
+### 5️⃣ Launch
 
 ```bash
 roslaunch h2017_w_gripper1 demo_gazebo.launch
