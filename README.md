@@ -1,7 +1,7 @@
 
 
 # 🤖 H2017 로봇팔 강화학습 환경 설정
-(https://github.com/user-attachments/assets/9e745252-7a92-4869-88d4-d8001fb0bb89)
+![title_image](https://github.com/user-attachments/assets/9e745252-7a92-4869-88d4-d8001fb0bb89)
 본 가이드는 H2017 로봇팔 제어를 위한 강화학습 환경을 단계별로 설정하는 방법을 제공합니다. 이 환경은 [두산 로보틱스 GitHub](https://github.com/doosan-robotics/doosan-robot)에서 제공하는 URDF를 기반으로 하며, end-effector와 base의 collision 및 visual 모델은 자체 제작된 모델입니다. 기존 DSR 에뮬레이터(dsr_emulator)의 Docker 실행 불편함과 배속 조절 불가 문제를 개선한 환경을 제공합니다.
 
 # 💻 운영체제 설치
