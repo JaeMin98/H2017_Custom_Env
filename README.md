@@ -196,19 +196,18 @@ gedit ~/catkin_ws/src/h2017_w_gripper1/launch/gazebo.launch # world_name의 defa
 ```
 
 ## 5️⃣ Launch
-```
+```bash
 roslaunch h2017_w_gripper1 demo_gazebo.launch
 ```
 
 
 ### 🔴 controller error 발생 시
-```
+```bash
 gedit ~/catkin_ws/src/h2017_w_gripper1/config/gazebo_h2017.urdf  # 중복된 gazebo_ros_control plugin을 제거하세요
-
 ```
 
 ### 🔴 Link attacher 비활성화를 원할 시
-```
+```bash
 world 파일에서 <plugin name="link_attacher_plugin" filename="libgazebo_ros_link_attacher.so" /> 제거
 urdf 파일에서 <plugin name="ros_link_attacher_plugin" filename="libgazebo_ros_link_attacher.so"/> 제거
 ```
