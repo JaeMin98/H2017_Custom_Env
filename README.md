@@ -183,6 +183,7 @@ source devel/setup.bash
 ```bash
 roslaunch moveit_setup_assistant setup_assistant.launch
 ```
+[영상 가이드](https://www.youtube.com/watch?v=gC_CYeNccQk)
 
 ## 4️⃣ Custom world 설정
 ```bash
