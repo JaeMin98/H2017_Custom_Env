@@ -104,7 +104,7 @@ sudo rm -rf /usr/local/cuda*
 ### 1️⃣ Installing Graphics Driver
 
 1. Verify and install the driver:
-
+    [Check GPU Driver and CUDA Version Compatibility](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#id4).
     ```bash
     ubuntu-drivers devices
     sudo apt-get install nvidia-driver-<version number>
@@ -131,8 +131,9 @@ nvcc -V  # Verify installation
 
 ### 3️⃣ Installing cuDNN
 
-1. Download the deb file from the [cuDNN Archive](https://developer.nvidia.com/rdp/cudnn-archive) and install it.
-2. If needed, use the following commands to remove CUDA and cuDNN source lists.
+1. [Verifying cuDNN Version Compatibility](https://en.wikipedia.org/wiki/CUDA#GPUs_supported).
+2. Download the deb file from the [cuDNN Archive](https://developer.nvidia.com/rdp/cudnn-archive) and install it.
+3. If needed, use the following commands to remove CUDA and cuDNN source lists.
 
     ```bash
     sudo rm /etc/apt/sources.list.d/cuda*
@@ -141,6 +142,7 @@ nvcc -V  # Verify installation
 
 # 🔥 Verifying PyTorch and CUDA Installation
 
+[Install using the CUDA-compatible PyTorch installation guide](https://pytorch.org/get-started/locally/)
 Run the following Python code to verify CUDA and cuDNN settings:
 
 ```python
