@@ -189,7 +189,6 @@ roslaunch moveit_setup_assistant setup_assistant.launch
 sudo mv ~/catkin_ws/src/h2017_URDF/worlds/objects/*.dae /usr/share/gazebo-11/models/
 ls /usr/share/gazebo-11/models
 ```
-<br><br>
 world_name의 default 값을 변경 >> "$(find h2017_URDF)/worlds/custom_world.world"
 ```bash
 gedit ~/catkin_ws/src/h2017_w_gripper1/launch/demo_gazebo.launch
@@ -202,14 +201,14 @@ roslaunch h2017_w_gripper1 demo_gazebo.launch
 ```
 
 
-### controller error 발생 시 
+### 🔴 controller error 발생 시 
 <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"/> 중복 제거
 ```
 gedit ~/catkin_ws/src/h2017_w_gripper1/config/gazebo_h2017.urdf
 
 ```
 
-### Link attacher 비활성화를 원할 시
+### 🔴 Link attacher 비활성화를 원할 시
 world 파일에서 <plugin name="link_attacher_plugin" filename="libgazebo_ros_link_attacher.so" /> 제거
 urdf 파일에서 <plugin name="ros_link_attacher_plugin" filename="libgazebo_ros_link_attacher.so"/> 제거
 
