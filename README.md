@@ -103,7 +103,7 @@ sudo rm -rf /usr/local/cuda*
 
 ### 1️⃣ Installing Graphics Driver
 
-1. Verify and install the driver:<br><br>
+1. Verify and install the driver:<br>
     [Check GPU Driver and CUDA Version Compatibility](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html#id4).
     ```bash
     ubuntu-drivers devices
