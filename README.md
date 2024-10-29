@@ -202,14 +202,19 @@ roslaunch h2017_w_gripper1 demo_gazebo.launch
 ```
 
 
-### 🔴 controller error 발생 시 
+### 🔴 controller error 발생 시
+```
 <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so"/> 중복 제거
+```
+
 ```
 gedit ~/catkin_ws/src/h2017_w_gripper1/config/gazebo_h2017.urdf
 
 ```
 
 ### 🔴 Link attacher 비활성화를 원할 시
+```
 world 파일에서 <plugin name="link_attacher_plugin" filename="libgazebo_ros_link_attacher.so" /> 제거
 urdf 파일에서 <plugin name="ros_link_attacher_plugin" filename="libgazebo_ros_link_attacher.so"/> 제거
+```
 
