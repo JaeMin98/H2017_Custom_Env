@@ -210,6 +210,33 @@ gedit ~/catkin_ws/src/h2017_w_gripper1/config/gazebo_h2017.urdf  # Remove any du
 ### 🔴 To Disable the Link Attacher
 
 ```bash
-Remove <plugin name="link_attacher_plugin" filename="libgazebo_ros_link_attacher.so" /> from the world file
-Remove <plugin name="ros_link_attacher_plugin" filename="libgazebo_ros_link_attacher.so"/> from the urdf file
+# Remove <plugin name="link_attacher_plugin" filename="libgazebo_ros_link_attacher.so" /> from the world file
+# Remove <plugin name="ros_link_attacher_plugin" filename="libgazebo_ros_link_attacher.so"/> from the urdf file
+```
+
+# 🛠️ setting up bashrc
+Add the following lines to the '~/.bashrc' file for convenient configuration:
+
+```bash
+export PATH=/usr/local/cuda-<CUDA version>/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda-<CUDA version>/lib64:$LD_LIBRARY_PATH
+source /opt/ros/noetic/setup.bash
+
+alias python=python3
+alias pip=pip3
+
+source /opt/ros/noetic/setup.bash
+source ~/catkin_ws/devel/setup.bash
+
+alias sb="source ~/.bashrc"
+alias cm="catkin_make & source ./devel/setup.bash"
+alias rc='rosclean purge -y'
+alias run='rosclean purge -y & roslaunch h2017_w_gripper1 demo_gazebo.launch'
+
+# input your IP
+# default PORT : 11311
+export ROS_MASTER_URI=http://<IP>:11311
+export ROS_HOSTNAME=<IP>
+# default PORT : 11345
+export GAZEBO_MASTER_URI=http://<IP>:11345
 ```
