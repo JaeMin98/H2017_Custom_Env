@@ -187,7 +187,7 @@ source devel/setup.bash
 ```bash
 roslaunch moveit_setup_assistant setup_assistant.launch
 ```
-video guide
+video guide<bt>
 [![video guide](https://github.com/user-attachments/assets/a2688eab-f157-4195-8cc6-1e33fd89f4ca)](https://www.youtube.com/watch?v=gC_CYeNccQk)
 
 ### 4️⃣ Setting up a Custom World
