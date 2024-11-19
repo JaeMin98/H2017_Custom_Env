@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<launch>
+
+    <!-- down_camera 영상 녹화 노드 -->
+    <node pkg="image_view" type="video_recorder" name="down_camera_recorder" output="screen">
+        <remap from="image" to="/down_camera/down_camera/image_raw"/>
+        <param name="filename" value="/home/smartcps/Videos/down_camera.mp4"/>
+        <param name="codec" value="mp4v"/>
+        <param name="fps" value="60"/>
+    </node>
+
+    <!-- front_camera 영상 녹화 노드 -->
+    <node pkg="image_view" type="video_recorder" name="front_camera_recorder" output="screen">
+        <remap from="image" to="/front_camera/front_camera/image_raw"/>
+        <param name="filename" value="/home/smartcps/Videos/front_camera.mp4"/>
+        <param name="codec" value="mp4v"/>
+        <param name="fps" value="60"/>
+    </node>
+
+    <!-- side_camera 영상 녹화 노드 -->
+    <node pkg="image_view" type="video_recorder" name="side_camera_recorder" output="screen">
+        <remap from="image" to="/side_camera/side_camera/image_raw"/>
+        <param name="filename" value="/home/smartcps/Videos/side_camera.mp4"/>
+        <param name="codec" value="mp4v"/>
+        <param name="fps" value="60"/>
+    </node>
+
+    <!-- diagonal_camera 영상 녹화 노드 -->
+    <node pkg="image_view" type="video_recorder" name="diagonal_camera_recorder" output="screen">
+        <remap from="image" to="/diagonal_camera/diagonal_camera/image_raw"/>
+        <param name="filename" value="/home/smartcps/Videos/diagonal_camera.mp4"/>
+        <param name="codec" value="mp4v"/>
+        <param name="fps" value="60"/>
+    </node>
+</launch>
+
