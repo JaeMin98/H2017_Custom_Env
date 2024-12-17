@@ -201,10 +201,24 @@ gedit ~/catkin_ws/src/h2017_w_gripper1/launch/demo_gazebo.launch # Change the de
 gedit ~/catkin_ws/src/h2017_w_gripper1/launch/gazebo.launch # Change the default value of world_name >> "$(find h2017_URDF)/worlds/custom_world.world"
 ```
 
-### 5️⃣ Launch
+### 5️⃣ Installing OpenCV and YOLOv3 for Object Detection
+
+```bash
+pip install opencv-python
+```
+```bash
+cd ~/catkin_ws/src/my_package/src/yolov3_models
+wget https://pjreddie.com/media/files/yolov3.weights
+wget https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/yolov3.cfg
+wget https://raw.githubusercontent.com/pjreddie/darknet/master/data/coco.names
+```
+
+### 6️⃣ Launch
 
 ```bash
 roslaunch h2017_w_gripper1 demo_gazebo.launch
+python3 ~/catkin_ws/src/my_package/src/object_detection.py
+python3 ~/catkin_ws/src/my_package/src/pick_and_place.py
 ```
 
 ### 🔴 If a Controller Error Occurs
